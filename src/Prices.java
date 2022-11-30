@@ -19,16 +19,16 @@ public class Prices {
         return deluxeBurgerPrice + currencySign;
     }
 
-    public String getBasicAdditions() {
-        return basicAdditions + currencySign;
+    public double getBasicAdditions() {
+        return basicAdditions;
     }
 
-    public String getHealthyAddition() {
-        return healthyAddition + currencySign;
+    public double getHealthyAddition() {
+        return healthyAddition;
     }
 
-    public String getDeluxeAddition() {
-        return deluxeAddition + currencySign;
+    public double getDeluxeAddition() {
+        return deluxeAddition;
     }
 
     public String getCurrencySign() {

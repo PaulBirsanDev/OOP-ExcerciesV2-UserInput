@@ -1,13 +1,19 @@
-public class BasicBurger {
+public class BasicBurger extends Prices {
     private String breadRollType;
     private String meatType;
     private String name;
+    private String prices;
 
-    public BasicBurger(String breadRollType, String meatType) {
+    public BasicBurger() {
+    }
+
+    public BasicBurger(String breadRollType, String meatType, String name) {
         this.breadRollType = breadRollType;
         this.meatType = meatType;
-        this.name = "Basic Burger";
+        this.name = name;
+        this.prices = getBasicBurgerPrice();
     }
+
     public String breadRoll(int numberOfType) {
         String msg = "";
             switch (numberOfType) {
@@ -54,6 +60,29 @@ public class BasicBurger {
         }
         return msg;
     }
+    public String additions(int numberOfAddition) {
+        double priceForAddition = numberOfAddition * getBasicAdditions();
+        return priceForAddition + getCurrencySign();
+    }
+    public String whichAdditions(int numberOfType) {
+        String msg = "";
+        switch (numberOfType) {
+            case 1:
+                msg = "Lettuce";
+                break;
+            case 2:
+                msg = "Tomatos";
+                break;
+            case 3:
+                msg = "Bacon Strips";
+                break;
+            case 4:
+                msg = "Patato Chips";
+            default:
+                msg = "";
+        }
+        return msg;
+    }
 
     public String getBreadRollType() {
         return breadRollType;
@@ -65,15 +94,5 @@ public class BasicBurger {
 
     public String getName() {
         return name;
-    }
-    public String basicBurgerMaking() {
-        String feedBack = "So you want a Basic Burger, well let's choose the ingredients: " + "\n"
-                +  "What type of bread rolls do you want and how would you like the meat to be prepared: \n";
-        String typesOfBreadRolls = "1.Homemade Crescent Rolls" + "\n" + "2.Potato Bread Rolls" + "\n"
-                + "3.Honey Wheat Rolls" + "\n" + "4.Brown rye bread Rolls";
-        String typesOfMeat = "1.Rare" + "\n" + "2.Medium-rare" + "\n" + "3.Well done";
-        String answerForBasicBurger = "Write down first the number for the roll bread type and then for the meat preparation: \n " +
-                "Example: 2 \n 2";
-        return feedBack + typesOfBreadRolls + typesOfMeat + answerForBasicBurger;
     }
 }
